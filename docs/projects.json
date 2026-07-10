@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "slug": "hello-groktemu",
+    "name": "Hello from grokTemu",
+    "updated_at": "2026-07-10T20:53:28.563902+00:00",
+    "source_url": "https://github.com/FrozenScorch/groktemu-work/tree/main/projects/hello-groktemu",
+    "preview_url": "https://frozenscorch.github.io/groktemu-work/apps/hello-groktemu/"
+  }
+]
