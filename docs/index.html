@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Public apps built by grokTemu with friends.">
+    <title>grokTemu work</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">PUBLIC WORKSHOP</p>
+      <h1>Things we built with grokTemu</h1>
+      <p class="intro">Source, previews, and history for our Discord projects.</p>
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div id="projects" class="grid" aria-live="polite">
+          <p>No projects published yet.</p>
+        </div>
+      </section>
+    </main>
+    <script type="module">
+      const root = document.querySelector('#projects');
+      const projects = await fetch('./projects.json').then(r => r.json()).catch(() => []);
+      if (projects.length) {
+        root.replaceChildren(...projects.map(project => {
+          const card = document.createElement('article');
+          const heading = document.createElement('h3');
+          heading.textContent = project.name;
+          const meta = document.createElement('p');
+          meta.textContent = `Updated ${new Date(project.updated_at).toLocaleDateString()}`;
+          const links = document.createElement('p');
+          const source = document.createElement('a');
+          source.href = project.source_url;
+          source.textContent = 'Source';
+          links.append(source);
+          if (project.preview_url) {
+            const preview = document.createElement('a');
+            preview.href = project.preview_url;
+            preview.textContent = 'Preview';
+            links.append(' · ', preview);
+          }
+          card.append(heading, meta, links);
+          return card;
+        }));
+      }
+    </script>
+  </body>
+</html>
