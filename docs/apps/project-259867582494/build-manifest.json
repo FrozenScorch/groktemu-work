@@ -1,0 +1,15 @@
+{
+  "name": "aether",
+  "builtAt": "production",
+  "entry": "index.html",
+  "assets": [
+    "index.html",
+    "src/styles.css",
+    "src/main.js",
+    "src/canvas.js",
+    "src/theme.js",
+    "src/nav.js",
+    "src/reveal.js",
+    "src/form.js"
+  ]
+}

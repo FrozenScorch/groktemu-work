@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Aether — a generative design studio crafting interactive, living interfaces for the web. Motion, light, and code as one craft." />
+    <meta name="theme-color" content="#0b0d12" />
+    <meta property="og:title" content="Aether — Generative Design Studio" />
+    <meta property="og:description" content="Interactive, living interfaces for the modern web." />
+    <meta property="og:type" content="website" />
+    <title>Aether — Generative Design Studio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%237c5cff'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%230b0d12'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Animated canvas backdrop -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Header / Nav -->
+    <header class="site-header" data-elevate="false">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="Aether home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Aether</span>
+        </a>
+        <nav class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#studio">Studio</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" aria-pressed="false">
+            <span class="icon-sun" aria-hidden="true"></span>
+            <span class="icon-moon" aria-hidden="true"></span>
+          </button>
+          <a class="btn btn-primary nav-cta" href="#contact">Start a project</a>
+          <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-nav" class="mobile-nav" hidden>
+        <nav aria-label="Mobile">
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#studio">Studio</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a class="btn btn-primary" href="#contact">Start a project</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <span id="top" tabindex="-1"></span>
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Generative design studio</p>
+            <h1 id="hero-title">We build <span class="grad">living interfaces</span> for the modern web.</h1>
+            <p class="lede">Aether blends motion, light, and code into interactive experiences that feel alive — fast, accessible, and unmistakably yours.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-lg" href="#contact">Start a project</a>
+              <a class="btn btn-ghost btn-lg" href="#work">See our work</a>
+            </div>
+            <dl class="hero-stats">
+              <div><dt>Projects shipped</dt><dd data-count="240">0</dd></div>
+              <div><dt>Avg. load time</dt><dd data-count="0" data-suffix="s" data-decimals="1">0</dd></div>
+              <div><dt>Design awards</dt><dd data-count="18">0</dd></div>
+            </dl>
+          </div>
+          <div class="hero-visual reveal">
+            <div class="orb" aria-hidden="true">
+              <div class="orb-ring orb-ring-1"></div>
+              <div class="orb-ring orb-ring-2"></div>
+              <div class="orb-ring orb-ring-3"></div>
+              <div class="orb-core"></div>
+            </div>
+            <div class="float-card card-marquee" aria-hidden="true">
+              <span class="tag">shader</span><span class="tag">webgl</span><span class="tag">motion</span>
+            </div>
+          </div>
+        </div>
+        <div class="container trust-row reveal" aria-label="Trusted by">
+          <span>Trusted by teams at</span>
+          <ul class="logos">
+            <li>Northwind</li><li>Lumina</li><li>Vertex</li><li>Halcyon</li><li>Polaris</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Marquee strip -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Generative ● Motion ● WebGL ● Accessibility ● Performance ● Brand Systems ● Generative ● Motion ● WebGL ● Accessibility ● Performance ● Brand Systems ● </span>
+          <span>Generative ● Motion ● WebGL ● Accessibility ● Performance ● Brand Systems ● Generative ● Motion ● WebGL ● Accessibility ● Performance ● Brand Systems ● </span>
+        </div>
+      </div>
+
+      <!-- Work / Gallery -->
+      <section id="work" class="section" aria-labelledby="work-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="work-title">Recent explorations</h2>
+            <p class="section-sub">A sample of interactive systems shipped for partners across product, arts, and culture.</p>
+          </header>
+          <div class="gallery">
+            <article class="card reveal" style="--i:0">
+              <div class="card-media" data-art="flow"></div>
+              <div class="card-body">
+                <h3>Tidal</h3>
+                <p>A real-time flow-field visualization reacting to live ocean data.</p>
+                <ul class="chip-list"><li>WebGL</li><li>Data viz</li></ul>
+              </div>
+            </article>
+            <article class="card reveal" style="--i:1">
+              <div class="card-media" data-art="grid"></div>
+              <div class="card-body">
+                <h3>Lattice</h3>
+                <p>An interactive brand system that draws itself from a single seed.</p>
+                <ul class="chip-list"><li>Generative</li><li>Brand</li></ul>
+              </div>
+            </article>
+            <article class="card reveal" style="--i:2">
+              <div class="card-media" data-art="orbit"></div>
+              <div class="card-body">
+                <h3>Orbit</h3>
+                <p>A spatial onboarding sequence with depth, sound, and physics.</p>
+                <ul class="chip-list"><li>Motion</li><li>3D</li></ul>
+              </div>
+            </article>
+            <article class="card reveal" style="--i:3">
+              <div class="card-media" data-art="wave"></div>
+              <div class="card-body">
+                <h3>Ember</h3>
+                <p>A warm, particle-driven hero that responds to every cursor move.</p>
+                <ul class="chip-list"><li>Canvas</li><li>Interaction</li></ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Studio / About -->
+      <section id="studio" class="section section-alt" aria-labelledby="studio-title">
+        <div class="container two-col">
+          <div class="reveal">
+            <p class="eyebrow">The studio</p>
+            <h2 id="studio-title">A small team obsessed with how things feel.</h2>
+            <p class="lede">We're designers, engineers, and motion artists who believe the best interfaces are the ones you don't notice — they simply respond.</p>
+            <p>Since 2018 we've partnered with founders, museums, and global teams to ship work that earns attention and performs under load. Every project is built mobile-first, accessible by default, and tuned for speed.</p>
+            <a class="text-link" href="#contact">Work with us →</a>
+          </div>
+          <ul class="value-list reveal">
+            <li><span class="v-num">01</span><div><h3>Craft over chrome</h3><p>Details matter, but only when they serve the experience.</p></div></li>
+            <li><span class="v-num">02</span><div><h3>Accessible by default</h3><p>Semantic, keyboard-friendly, and resilient from day one.</p></div></li>
+            <li><span class="v-num">03</span><div><h3>Performance is a feature</h3><p>Sub-second loads and 60fps motion are table stakes.</p></div></li>
+            <li><span class="v-num">04</span><div><h3>Built to hand off</h3><p>Clean, documented systems your team can own.</p></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="process" class="section" aria-labelledby="process-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">How we work</p>
+            <h2 id="process-title">A clear path from idea to launch</h2>
+            <p class="section-sub">Four focused phases that keep everyone aligned and shipping.</p>
+          </header>
+          <ol class="steps">
+            <li class="step reveal"><span class="step-no">01</span><h3>Discover</h3><p>We dig into goals, audience, and constraints to define success.</p></li>
+            <li class="step reveal"><span class="step-no">02</span><h3>Design</h3><p>From wireframes to a living prototype you can click and feel.</p></li>
+            <li class="step reveal"><span class="step-no">03</span><h3>Build</h3><p>Production-grade code, motion, and accessibility baked in.</p></li>
+            <li class="step reveal"><span class="step-no">04</span><h3>Launch</h3><p>We ship, measure, and tune — then hand off everything you need.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="section section-alt" aria-labelledby="quotes-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Kind words</p>
+            <h2 id="quotes-title">What partners say</h2>
+          </header>
+          <div class="quotes">
+            <figure class="quote reveal"><blockquote>“Aether turned an abstract idea into the most engaging page we've ever shipped. Conversions doubled.”</blockquote><figcaption><strong>Mara Lindqvist</strong><span>Head of Brand, Lumina</span></figcaption></figure>
+            <figure class="quote reveal"><blockquote>“They sweat the details nobody else notices. The motion alone earned us a feature in a design annual.”</blockquote><figcaption><strong>Dev Patel</strong><span>CEO, Vertex</span></figcaption></figure>
+            <figure class="quote reveal"><blockquote>“Fast, accessible, and genuinely beautiful. Our accessibility score went from 71 to 100.”</blockquote><figcaption><strong>Sofia Ramos</strong><span>Product Lead, Halcyon</span></figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="section" aria-labelledby="pricing-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Engagements</p>
+            <h2 id="pricing-title">Ways to work together</h2>
+            <p class="section-sub">Transparent scopes. Every engagement includes accessibility and performance audits.</p>
+          </header>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <h3>Sprint</h3><p class="price-sub">A focused 2-week build</p>
+              <p class="price"><span>$</span>9k<span class="price-unit">/ project</span></p>
+              <ul class="check-list"><li>Single page or landing</li><li>Custom motion & art direction</li><li>Responsive + a11y pass</li><li>2 rounds of revisions</li></ul>
+              <a class="btn btn-ghost" href="#contact">Book a sprint</a>
+            </article>
+            <article class="price-card price-card-featured reveal">
+              <p class="badge">Most popular</p>
+              <h3>Signature</h3><p class="price-sub">A complete marketing site</p>
+              <p class="price"><span>$</span>32k<span class="price-unit">/ project</span></p>
+              <ul class="check-list"><li>Up to 10 bespoke pages</li><li>Design system & components</li><li>CMS integration</li><li>Performance tuning</li><li>30 days post-launch support</li></ul>
+              <a class="btn btn-primary" href="#contact">Start a project</a>
+            </article>
+            <article class="price-card reveal">
+              <h3>Partner</h3><p class="price-sub">Ongoing design partner</p>
+              <p class="price"><span>$</span>14k<span class="price-unit">/ month</span></p>
+              <ul class="check-list"><li>Dedicated cross-functional pod</li><li>Continuous experiments</li><li>Quarterly strategy</li><li>Priority turnaround</li></ul>
+              <a class="btn btn-ghost" href="#contact">Talk to us</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section section-alt" aria-labelledby="faq-title">
+        <div class="container narrow">
+          <header class="section-head reveal">
+            <p class="eyebrow">Questions</p>
+            <h2 id="faq-title">Frequently asked</h2>
+          </header>
+          <div class="accordion">
+            <details class="acc-item reveal"><summary>How long does a typical project take?</summary><div class="acc-panel"><p>Most marketing sites run 4–8 weeks from kickoff to launch, depending on scope. Sprints are delivered in two weeks.</p></div></details>
+            <details class="acc-item reveal"><summary>Do you work with existing design systems?</summary><div class="acc-panel"><p>Absolutely. We're happy to extend your tokens and components, or build a fresh system from scratch.</p></div></details>
+            <details class="acc-item reveal"><summary>How do you handle accessibility?</summary><div class="acc-panel"><p>Every build is tested against WCAG 2.1 AA — semantic markup, keyboard support, color contrast, and reduced-motion preferences.</p></div></details>
+            <details class="acc-item reveal"><summary>What happens after launch?</summary><div class="acc-panel"><p>You own everything. We hand off clean, documented code and offer optional support retainers.</p></div></details>
+            <details class="acc-item reveal"><summary>Can you help with hosting and CI?</summary><div class="acc-panel"><p>Yes — we can set up deployment pipelines, edge hosting, and monitoring as part of any engagement.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA / Contact -->
+      <section id="contact" class="section cta-section" aria-labelledby="contact-title">
+        <div class="container cta-grid">
+          <div class="reveal">
+            <p class="eyebrow eyebrow-light">Let's build</p>
+            <h2 id="contact-title">Have something in mind?</h2>
+            <p class="lede">Tell us a little about your project and we'll get back within two business days.</p>
+            <ul class="contact-meta">
+              <li><span>Email</span><a href="mailto:hello@aether.studio">hello@aether.studio</a></li>
+              <li><span>Studio</span><a href="#">Remote · Worldwide</a></li>
+            </ul>
+          </div>
+          <form id="contact-form" class="contact-form reveal" novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-for="cf-name"></p>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-for="cf-email"></p>
+            </div>
+            <div class="field">
+              <label for="cf-budget">Budget</label>
+              <select id="cf-budget" name="budget">
+                <option value="">Select a range</option>
+                <option>$5k – $15k</option>
+                <option>$15k – $40k</option>
+                <option>$40k+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-message">Project details</label>
+              <textarea id="cf-message" name="message" rows="4" required></textarea>
+              <p class="error" data-for="cf-message"></p>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Send message</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Aether home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">Aether</span>
+          </a>
+          <p>Generative design studio. Motion, light, and code as one craft.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h4>Studio</h4>
+          <ul><li><a href="#work">Work</a></li><li><a href="#studio">About</a></li><li><a href="#process">Process</a></li></ul>
+        </nav>
+        <nav aria-label="Footer connect">
+          <h4>Connect</h4>
+          <ul><li><a href="#contact">Contact</a></li><li><a href="#">Twitter</a></li><li><a href="#">GitHub</a></li></ul>
+        </nav>
+        <form class="newsletter" id="newsletter-form" novalidate>
+          <h4>Newsletter</h4>
+          <p>Occasional notes on craft. No spam.</p>
+          <div class="news-input">
+            <input id="nl-email" name="email" type="email" placeholder="you@example.com" aria-label="Email address" required />
+            <button class="btn btn-primary" type="submit">Join</button>
+          </div>
+          <p class="form-status" id="nl-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year">2026</span> Aether Studio. Crafted with care.</p>
+        <p class="built-with">Built with vanilla JS · No frameworks</p>
+      </div>
+    </footer>
+
+    <button id="to-top" class="to-top" type="button" aria-label="Back to top" hidden>↑</button>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
