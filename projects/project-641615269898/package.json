@@ -1,0 +1,15 @@
+{
+  "name": "async-agent",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Async — an AI development agent that plans a goal and runs it step by step, asynchronously, in the browser.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1"
+  }
+}
