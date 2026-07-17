@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruh-Ro! — The Silly Scooby-Doo Site</title>
+  <meta name="description" content="A gloriously silly tribute to Scooby-Doo: feed Scooby snacks, unmask a villain, and collect catchphrases from the Mystery Inc. gang.">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav__inner">
+      <span class="nav__brand">
+        <span class="logo-paw" aria-hidden="true">🐾</span> Ruh-Ro!
+      </span>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#snacks">Scooby Snacks</a>
+        <a href="#gang">The Gang</a>
+        <a href="#unmask">Unmask a Villain</a>
+        <a href="#quote">Catchphrase</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="paws" aria-hidden="true">
+        <span class="paw" style="top:12%;left:8%;animation-delay:0s">🐾</span>
+        <span class="paw" style="top:60%;left:16%;animation-delay:1.2s">🐾</span>
+        <span class="paw" style="top:24%;right:10%;animation-delay:2.1s">🐾</span>
+        <span class="paw" style="top:70%;right:18%;animation-delay:0.6s">🐾</span>
+        <span class="paw" style="top:40%;left:46%;animation-delay:1.8s">🐾</span>
+      </div>
+
+      <div class="container">
+        <span class="hero__eyebrow">👻 A Mystery, Inc. Production</span>
+        <h1 class="hero__title">Scooby-Dooby-<span class="ink-accent">Doo!</span></h1>
+        <p class="hero__subtitle">
+          A monument to the goofiest Great Dane in television history. Feed him
+          snacks, yank masks off fake ghosts, and gather all the &ldquo;Zoinks!&rdquo;
+          you can carry. The Mystery Machine is idling — hop in.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--lg" href="#snacks">🍪 Grab a Scooby Snack</a>
+          <a class="btn btn--lg btn--purple" href="#unmask">🔍 Unmask a Villain</a>
+        </div>
+      </div>
+
+      <div class="road" aria-hidden="true">
+        <div class="van-track">
+          <div class="van is-driving" data-van>
+            <div class="van__roof"></div>
+            <div class="van__window"></div>
+            <div class="van__body">
+              <div class="van__sign">THE MYSTERY MACHINE</div>
+              <div class="van__flower van__flower--1"></div>
+              <div class="van__flower van__flower--2"></div>
+            </div>
+            <div class="van__headlight"></div>
+            <div class="van__wheel van__wheel--rear"></div>
+            <div class="van__wheel van__wheel--front"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="snacks" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">🍪 The Scooby Snack Counter</h2>
+          <p class="section__lede">Scooby will solve literally any mystery for a snack. Tap the button and watch him ascend through legendary levels of snack-induced power.</p>
+        </div>
+
+        <div class="panel">
+          <div class="snack">
+            <div>
+              <div class="snack__count" data-snack-count>0<small>Scooby Snacks devoured</small></div>
+              <p class="snack__title" data-snack-title>A little peckish</p>
+              <p class="snack__message" data-snack-message>Scooby eyeballs the Scooby Snack. One nibble couldn't hurt...</p>
+              <div class="snack__actions">
+                <button class="btn" data-snack-feed type="button">Feed Scooby! 🦴</button>
+              </div>
+            </div>
+            <div class="scooby" data-scooby aria-hidden="true">
+              <div class="scooby__ear scooby__ear--left"></div>
+              <div class="scooby__ear scooby__ear--right"></div>
+              <div class="scooby__head">
+                <div class="scooby__brow scooby__brow--left"></div>
+                <div class="scooby__brow scooby__brow--right"></div>
+                <div class="scooby__eye scooby__eye--left"></div>
+                <div class="scooby__eye scooby__eye--right"></div>
+                <div class="scooby__muzzle">
+                  <div class="scooby__nose"></div>
+                </div>
+              </div>
+              <div class="scooby__collar"></div>
+              <div class="scooby__tag">SD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gang" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">🔍 Meet Mystery, Inc.</h2>
+          <p class="section__lede">Five meddling kids (and one dog) who somehow keep getting invited to haunted places.</p>
+        </div>
+        <div class="grid" data-gang>
+          <!-- cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="unmask" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">🎭 Unmask the Villain</h2>
+          <p class="section__lede">The ghost is never a real ghost. Pull off the mask and collect the confession.</p>
+        </div>
+
+        <div class="panel unmask">
+          <div class="unmask__monster" aria-hidden="true">👻</div>
+          <p><strong>The monster flees into the next room!</strong></p>
+          <button class="btn btn--green btn--lg" data-unmask type="button">Pull off the mask! 🎭</button>
+          <div class="reveal" data-unmask-result>
+            <p style="opacity:.7">Tap the button to reveal who&rsquo;s really under there...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">💬 Random Catchphrase</h2>
+          <p class="section__lede">Need a &ldquo;Zoinks!&rdquo; in a hurry? Roll the dice on a classic Mystery, Inc. line.</p>
+        </div>
+
+        <div class="panel quote">
+          <div class="quote__bubble" data-quote>Click below for a Scooby quote!</div>
+          <div class="quote__actions">
+            <button class="btn btn--purple btn--lg" data-quote-roll type="button">Zoinks! Another one!</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="margin:0;font-weight:700">🐾 Scooby-Dooby-Doo! Thanks for meddling. 🐾</p>
+      <p class="footer__tiny">
+        A silly fan tribute. Scooby-Doo and related characters are trademarks of their respective owners.
+        No Scooby Snacks were harmed in the making of this site.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

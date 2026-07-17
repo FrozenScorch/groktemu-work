@@ -1,0 +1,600 @@
+/* Scooby-Doo silliness — palette, layout, CSS art, and animations. */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --mm-green: #4a9b3e;
+  --mm-green-dark: #2f6b25;
+  --mm-green-light: #7bc86a;
+  --teal: #1f9aa6;
+  --teal-dark: #137079;
+  --orange: #f2913d;
+  --orange-dark: #d9732a;
+  --purple: #8e44ad;
+  --purple-dark: #6c2c87;
+  --cream: #fff7e0;
+  --cream-dark: #f6e6bd;
+  --ink: #2c1d10;
+  --sun: #ffd23f;
+  --shadow: 0 6px 0 rgba(44, 29, 16, 0.18);
+  --shadow-soft: 0 10px 24px rgba(44, 29, 16, 0.16);
+  --font-display: 'Bangers', 'Arial Black', Impact, sans-serif;
+  --font-body: 'Fredoka', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --maxw: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 210, 63, 0.35), transparent 38%),
+    radial-gradient(circle at 88% 12%, rgba(31, 154, 166, 0.28), transparent 42%),
+    var(--cream);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 0.4em;
+}
+
+p { margin: 0 0 1em; }
+
+a { color: var(--purple-dark); }
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Nav ---------------------------------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--mm-green-dark);
+  border-bottom: 4px solid var(--orange);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: var(--sun);
+  text-shadow: 2px 2px 0 var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__brand .logo-paw { display: inline-block; animation: wiggle 2.4s ease-in-out infinite; }
+.nav__links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav__links a {
+  font-weight: 600;
+  color: var(--cream);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.nav__links a:hover { background: var(--mm-green); transform: translateY(-2px); }
+
+/* --- Hero --------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 64px 20px 28px;
+  overflow: hidden;
+}
+.hero__eyebrow {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  transform: rotate(-2deg);
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.hero__title {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  color: var(--mm-green-dark);
+  text-shadow:
+    3px 3px 0 var(--orange),
+    6px 6px 0 var(--ink);
+}
+.hero__title .ink-accent { color: var(--orange); }
+.hero__subtitle {
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  max-width: 640px;
+  margin: 18px auto 26px;
+  font-weight: 500;
+}
+.hero__cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* floating paw prints */
+.paws { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.paw {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.5;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 24px;
+  cursor: pointer;
+  color: #fff;
+  background: var(--orange);
+  box-shadow: var(--shadow);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(44, 29, 16, 0.18); }
+.btn--green { background: var(--mm-green); }
+.btn--purple { background: var(--purple); }
+.btn--lg { font-size: 1.6rem; padding: 16px 32px; }
+
+/* --- Road + Mystery Machine -------------------------------------------- */
+
+.road {
+  height: 120px;
+  margin: 8px 0 40px;
+  position: relative;
+  background: linear-gradient(var(--ink) 0 6px, transparent 6px);
+  background-size: 40px 100%;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+.road::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 14px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sun) 0 28px,
+    transparent 28px 56px
+  );
+  opacity: 0.85;
+}
+
+.van-track { position: absolute; left: 0; right: 0; bottom: 18px; height: 90px; }
+
+.van {
+  position: absolute;
+  left: -260px;
+  bottom: 0;
+  width: 240px;
+  height: 90px;
+  animation: drive 9s linear infinite;
+}
+.van.is-driving { /* hook for JS, animation is defined below regardless */ }
+
+.van__body {
+  position: absolute;
+  left: 0; bottom: 14px;
+  width: 100%; height: 56px;
+  background: var(--mm-green);
+  border: 4px solid var(--ink);
+  border-radius: 14px 26px 12px 12px;
+}
+.van__roof {
+  position: absolute;
+  left: 8px; bottom: 56px;
+  width: 150px; height: 24px;
+  background: var(--mm-green-light);
+  border: 4px solid var(--ink);
+  border-radius: 16px 16px 4px 4px;
+}
+.van__window {
+  position: absolute;
+  left: 22px; bottom: 60px;
+  width: 60px; height: 26px;
+  background: var(--teal);
+  border: 4px solid var(--ink);
+  border-radius: 10px 14px 6px 6px;
+  box-shadow: 30px 0 0 var(--teal), 30px 0 0 4px var(--ink);
+}
+.van__sign {
+  position: absolute;
+  left: 96px; bottom: 30px;
+  width: 132px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--sun);
+  line-height: 1;
+}
+.van__headlight {
+  position: absolute;
+  right: 4px; bottom: 26px;
+  width: 12px; height: 12px;
+  background: var(--sun);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+.van__flower {
+  position: absolute;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow:
+    -9px 0 var(--orange), 9px 0 var(--orange),
+    0 -9px var(--orange), 0 9px var(--orange);
+}
+.van__flower::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: var(--sun);
+  border-radius: 50%;
+}
+.van__flower--1 { left: 150px; bottom: 36px; transform: scale(0.8); }
+.van__flower--2 { left: 180px; bottom: 50px; transform: scale(0.6); }
+.van__wheel {
+  position: absolute;
+  bottom: 0;
+  width: 30px; height: 30px;
+  background: var(--ink);
+  border: 4px solid #4a4a4a;
+  border-radius: 50%;
+}
+.van__wheel::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 3px solid #6b6b6b;
+}
+.van__wheel--front { right: 28px; }
+.van__wheel--rear { left: 28px; }
+
+@keyframes drive {
+  0%   { transform: translateX(0) rotate(0); }
+  50%  { transform: translateX(50vw) rotate(-0.5deg); }
+  100% { transform: translateX(calc(100vw + 260px)) rotate(0); }
+}
+
+/* --- Sections ----------------------------------------------------------- */
+
+.section { padding: 44px 0; }
+.section__head { text-align: center; margin-bottom: 30px; }
+.section__title {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--purple-dark);
+  text-shadow: 3px 3px 0 var(--sun);
+}
+.section__lede { max-width: 620px; margin: 0 auto; font-weight: 500; }
+
+.panel {
+  background: #fff;
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+  padding: 28px;
+}
+
+/* --- Snack counter ------------------------------------------------------ */
+
+.snack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+}
+.snack__count {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 14vw, 7rem);
+  line-height: 1;
+  color: var(--orange-dark);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.snack__count small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+.snack__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--mm-green-dark);
+  margin: 0 0 4px;
+}
+.snack__message { min-height: 1.6em; font-weight: 500; }
+.snack__actions { margin-top: 8px; }
+
+/* --- Scooby mascot ------------------------------------------------------ */
+
+.scooby {
+  position: relative;
+  width: 150px;
+  height: 160px;
+  margin: 0 auto;
+}
+.scooby.is-chomping { animation: chomp 0.4s ease; }
+.scooby.is-flying { animation: hover 1.6s ease-in-out infinite; }
+
+.scooby__ear {
+  position: absolute;
+  top: 8px;
+  width: 46px; height: 70px;
+  background: var(--mm-green-dark);
+  border: 4px solid var(--ink);
+  border-radius: 50% 50% 40% 40%;
+}
+.scooby__ear--left { left: 8px; transform: rotate(-22deg); }
+.scooby__ear--right { right: 8px; transform: rotate(22deg); }
+.scooby__head {
+  position: absolute;
+  top: 26px; left: 50%;
+  transform: translateX(-50%);
+  width: 110px; height: 96px;
+  background: #d6a35c;
+  border: 4px solid var(--ink);
+  border-radius: 46% 46% 50% 50%;
+}
+.scooby__muzzle {
+  position: absolute;
+  bottom: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 76px; height: 50px;
+  background: #efd2a3;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+}
+.scooby__nose {
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 26px; height: 18px;
+  background: var(--ink);
+  border-radius: 50%;
+}
+.scooby__eye {
+  position: absolute;
+  top: 22px;
+  width: 16px; height: 20px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+.scooby__eye::after {
+  content: '';
+  position: absolute;
+  top: 5px; left: 3px;
+  width: 6px; height: 7px;
+  background: var(--ink);
+  border-radius: 50%;
+}
+.scooby__eye--left { left: 22px; }
+.scooby__eye--right { right: 22px; }
+.scooby__brow {
+  position: absolute;
+  top: 14px;
+  width: 22px; height: 6px;
+  background: var(--ink);
+  border-radius: 4px;
+}
+.scooby__brow--left { left: 18px; transform: rotate(-12deg); }
+.scooby__brow--right { right: 18px; transform: rotate(12deg); }
+.scooby__collar {
+  position: absolute;
+  bottom: -6px; left: 50%;
+  transform: translateX(-50%);
+  width: 96px; height: 20px;
+  background: var(--teal);
+  border: 4px solid var(--ink);
+  border-radius: 10px;
+}
+.scooby__tag {
+  position: absolute;
+  bottom: -14px; left: 50%;
+  transform: translateX(-50%);
+  width: 22px; height: 22px;
+  background: var(--sun);
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+}
+
+@keyframes chomp {
+  0% { transform: scale(1) rotate(0); }
+  30% { transform: scale(1.1) rotate(-3deg); }
+  60% { transform: scale(0.96) rotate(2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@keyframes hover {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* --- Gang cards --------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-top: 10px solid var(--accent, var(--mm-green));
+}
+.card:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: var(--shadow-soft); }
+.card__emoji {
+  font-size: 3.4rem;
+  line-height: 1;
+  display: inline-block;
+  animation: bob 3s ease-in-out infinite;
+}
+.card__name { font-size: 1.8rem; color: var(--ink); margin: 6px 0 0; }
+.card__role { font-weight: 700; color: var(--accent, var(--mm-green-dark)); margin: 0 0 10px; }
+.card__catchphrase {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  color: var(--purple-dark);
+  background: var(--cream-dark);
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+.card__quirk { font-weight: 500; margin: 10px 0 0; }
+
+/* --- Unmask game -------------------------------------------------------- */
+
+.unmask { text-align: center; }
+.unmask__monster {
+  font-size: 5rem;
+  line-height: 1;
+  display: inline-block;
+  animation: spooky 2.2s ease-in-out infinite;
+}
+.reveal {
+  margin-top: 18px;
+  min-height: 60px;
+  opacity: 0.6;
+}
+.reveal.is-revealed { animation: pop 0.5s ease; opacity: 1; }
+.reveal__headline {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--mm-green-dark);
+  margin: 0 0 6px;
+}
+.reveal__confession { font-style: italic; font-weight: 600; margin: 0 0 8px; }
+.reveal__iconic {
+  font-weight: 700;
+  color: var(--purple-dark);
+  background: var(--cream-dark);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+/* --- Quote generator ---------------------------------------------------- */
+
+.quote { text-align: center; }
+.quote__bubble {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  background: var(--sun);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 22px 24px;
+  display: inline-block;
+  max-width: 100%;
+  box-shadow: var(--shadow);
+  position: relative;
+  min-height: 1.4em;
+}
+.quote__bubble.is-fresh { animation: pop 0.4s ease; }
+.quote__bubble::after {
+  content: '';
+  position: absolute;
+  left: 40px; bottom: -18px;
+  border: 12px solid transparent;
+  border-top-color: var(--ink);
+}
+.quote__actions { margin-top: 26px; }
+
+/* --- Footer ------------------------------------------------------------- */
+
+.footer {
+  background: var(--mm-green-dark);
+  color: var(--cream);
+  border-top: 4px solid var(--orange);
+  padding: 30px 0;
+  margin-top: 30px;
+  text-align: center;
+}
+.footer a { color: var(--sun); }
+.footer__tiny { opacity: 0.8; font-size: 0.9rem; margin-top: 6px; }
+
+/* --- Animations --------------------------------------------------------- */
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(-6deg); opacity: 0.4; }
+  50% { transform: translateY(-18px) rotate(8deg); opacity: 0.7; }
+}
+@keyframes spooky {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .van { animation: none; left: 20px; }
+}
+
+/* --- Layout breakpoints ------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .snack { grid-template-columns: 1fr; text-align: center; }
+  .nav__inner { justify-content: center; }
+}
